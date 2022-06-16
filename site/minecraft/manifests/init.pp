@@ -11,10 +11,12 @@ class minecraft{
   include java
   java::download { 'jdk17':
     ensure  => 'present',
+    java_se => 'jdk',
+    url     => 'https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz',
   }
   
   file{'/opt/minecraft/eula.txt':
-    ensure => file,
+    ensure  => file,
     content => 'eula=true',
   }
   

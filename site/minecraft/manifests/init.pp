@@ -9,7 +9,6 @@ class minecraft{
   }
   
   include java
-  
   java::adoptium { 'jdk17':
     ensure  => 'present',
     version_major => '17',
@@ -22,5 +21,10 @@ class minecraft{
     ensure => true,
     content => 'eula=true',
     source => 'puppet:///modules/minecraft/minecraft.service',
+  }
+  
+  service{'minecraft':
+    ensure => running,
+    enable => true,
   }
 }

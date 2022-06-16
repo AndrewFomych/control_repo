@@ -52,7 +52,7 @@ class minecraft(
   /*** File for autostart server ***/
   file{'/etc/systemd/system/minecraft.service':
     ensure => file,
-    content => epp('minecraft/minecraft.service', { install_dir => $install_dir }}),
+    content => epp('minecraft/minecraft.service', { install_dir => $install_dir "}}),
   }
   /*****************************/
   

@@ -8,6 +8,7 @@ class minecraft(
   }
   
   /***Install Java***/
+  
   /*include java
   java::download { 'jdk17':
     ensure  => 'present',
@@ -17,6 +18,7 @@ class minecraft(
   /*package {'java':
     ensure => present,
   }*/
+  
   file{'/jdk-17_linux-x64_bin.rpm':
     ensure => file,
     source => $java_url,
@@ -32,10 +34,12 @@ class minecraft(
     ensure => file,
     source => $minecraft_url,
   }
+  
   /*file {'/opt/minecraft/server.jar':
     ensure => file,
     source      => 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar', /*old URL minecraft*/
   }*/
+  
   /*****************************/
   
   /*** Needed file for the confirmation ***/
@@ -48,9 +52,7 @@ class minecraft(
   /*** File for autostart server ***/
   file{'/etc/systemd/system/minecraft.service':
     ensure => file,
-    content => epp('minecraft/minecraft.service', {
-      install_dir => ${install_dir}
-    }),
+    content => epp('minecraft/minecraft.service', {install_dir => ${install_dir}}),
   }
   /*****************************/
   

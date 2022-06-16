@@ -9,12 +9,8 @@ class minecraft{
   }
   
   include java
-  java::adoptium { 'jdk17':
+  java::download { 'jdk17':
     ensure  => 'present',
-    version_major => '17',
-    version_minor => '0',
-    version_patch => '1',
-    version_build => '12',
   }
   
   file{'/opt/minecraft/eula.txt':

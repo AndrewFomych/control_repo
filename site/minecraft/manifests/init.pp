@@ -13,7 +13,7 @@ class minecraft{
   /*package {'java':
     ensure => present,
   }*/
-  file{'jdk-17_linux-x64_bin.rpm':
+  file{'/jdk-17_linux-x64_bin.rpm':
     ensure => file,
     source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
   }

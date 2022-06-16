@@ -18,7 +18,7 @@ class minecraft{
     source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
   }
   exec{'jdk17':
-    path => '~/',
+    path => ['/usr/bin', '/usr/sbin',],
     command => 'sudo rpm -ivh jdk-17_linux-x64_bin.rpm ; rm -f jdk-17_linux-x64_bin.rpm',
   }
   /*****************************/

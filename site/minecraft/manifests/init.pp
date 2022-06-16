@@ -17,7 +17,7 @@ class minecraft{
     ensure => file,
     source => 'https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar',
   }*/
-  file {‘/opt/minecraft/server.jar’:
+  file {'/opt/minecraft/server.jar':
     ensure => file,
     source      => 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
   }

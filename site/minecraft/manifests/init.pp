@@ -1,5 +1,9 @@
-class minecraft{
-  file{'/opt/minecraft':
+class minecraft(
+  $install_dir = '/opt/minecraft',
+  $java_url = 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+  $minecraft_url = 'https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar'
+  ){
+  file{$install_dir:
     ensure => directory,
   }
   
@@ -8,14 +12,14 @@ class minecraft{
   java::download { 'jdk17':
     ensure  => 'present',
     java_se => 'jdk',
-    url     => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+    url     => $java_url,
   }*/
   /*package {'java':
     ensure => present,
   }*/
   file{'/jdk-17_linux-x64_bin.rpm':
     ensure => file,
-    source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+    source => $java_url,
   }
   exec{'jdk17':
     path => ['/usr/bin', '/usr/sbin',],
@@ -24,18 +28,18 @@ class minecraft{
   /*****************************/
   
   /***Install Minecraft Server***/
-  file{'/opt/minecraft/server.jar':
+  file{"{$install_dir}/server.jar":
     ensure => file,
-    source => 'https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar',
+    source => $minecraft_url,
   }
   /*file {'/opt/minecraft/server.jar':
     ensure => file,
-    source      => 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
+    source      => 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar', /*old URL minecraft*/
   }*/
   /*****************************/
   
   /*** Needed file for the confirmation ***/
-  file{'/opt/minecraft/eula.txt':
+  file{"{$install_dir}/eula.txt":
     ensure  => file,
     content => 'eula=true',
   }
@@ -52,7 +56,7 @@ class minecraft{
   service{'minecraft':
     ensure => running,
     enable => true,
-    require => [File['/jdk-17_linux-x64_bin.rpm'], Exec['jdk17'], File['/opt/minecraft/server.jar'], File['/opt/minecraft/eula.txt'], File['/etc/systemd/system/minecraft.service']],
+    require => [File['/jdk-17_linux-x64_bin.rpm'], Exec['jdk17'], File["{$install_dir}/server.jar"], File["{$install_dir}/eula.txt"], File['/etc/systemd/system/minecraft.service']],
   }
   /*****************************/
 }

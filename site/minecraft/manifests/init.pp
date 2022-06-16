@@ -28,7 +28,7 @@ class minecraft(
   /*****************************/
   
   /***Install Minecraft Server***/
-  file{"{$install_dir}/server.jar":
+  file{"$install_dir/server.jar":
     ensure => file,
     source => $minecraft_url,
   }
@@ -39,7 +39,7 @@ class minecraft(
   /*****************************/
   
   /*** Needed file for the confirmation ***/
-  file{"{$install_dir}/eula.txt":
+  file{"$install_dir/eula.txt":
     ensure  => file,
     content => 'eula=true',
   }
@@ -58,7 +58,7 @@ class minecraft(
   service{'minecraft':
     ensure => running,
     enable => true,
-    require => [File['/jdk-17_linux-x64_bin.rpm'], Exec['jdk17'], File["{$install_dir}/server.jar"], File["{$install_dir}/eula.txt"], File['/etc/systemd/system/minecraft.service']],
+    require => [File['/jdk-17_linux-x64_bin.rpm'], Exec['jdk17'], File["$install_dir/server.jar"], File["$install_dir/eula.txt"], File['/etc/systemd/system/minecraft.service']],
   }
   /*****************************/
 }

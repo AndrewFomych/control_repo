@@ -3,16 +3,19 @@ class minecraft{
     ensure => directory,
   }
   
-  include java
+  /*include java
   java::download { 'jdk17':
     ensure  => 'present',
     java_se => 'jdk',
     url     => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+  }*/
+  package {'java':
+    ensure => present,
   }
   
   file{'/opt/minecraft/server.jar':
     ensure => file,
-    source => 'https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar'
+    source => 'https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar',
   }
   
   file{'/opt/minecraft/eula.txt':

@@ -58,7 +58,7 @@ class minecraft(
   service{'minecraft':
     ensure => running,
     enable => true,
-    require => [File['/jdk-17_linux-x64_bin.rpm'], Exec['jdk17'], File['$install_dir/server.jar'], File['/etc/systemd/system/minecraft.service']],
+    /*require => [File['/jdk-17_linux-x64_bin.rpm'], Exec['jdk17'], File["{$install_dir}/server.jar"], File{"${install_dir}/eula.txt", File['/etc/systemd/system/minecraft.service']],*/
   }
   /*****************************/
 }

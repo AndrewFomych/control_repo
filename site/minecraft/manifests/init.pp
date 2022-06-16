@@ -13,8 +13,8 @@ class minecraft{
     ensure  => 'present',
     version_major => '17',
     version_minor => '0',
-    version_patch => '3',
-    version_build => '1',
+    version_patch => '1',
+    version_build => '12',
   }
   
   file{'/opt/minecraft/eula.txt':

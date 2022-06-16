@@ -35,6 +35,6 @@ class minecraft{
   service{'minecraft':
     ensure => running,
     enable => true,
-    require => [Java::download['jdk17'], File['/opt/minecraft/server.jar'], File['/opt/minecraft/eula.txt'], File['/etc/systemd/system/minecraft.service']],
+    require => [Download['jdk17'], File['/opt/minecraft/server.jar'], File['/opt/minecraft/eula.txt'], File['/etc/systemd/system/minecraft.service']],
   }
 }

@@ -7,3 +7,6 @@ mod 'puppetlabs-docker'
 mod 'puppetlabs-apt'
 mod 'puppetlabs-powershell'
 mod 'puppetlabs-reboot'
+
+mod 'puppetlabs-java'
+mod 'puppet-archive'

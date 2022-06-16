@@ -12,6 +12,6 @@ class profile::ssh_server {
     ensure => present,
     user   => 'root',
     type   => 'ssh-rsa',
-    key    => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDhDn5tgS3KQLZ2TRnB2gdARh2tugigDmk1mPwmrnCPcr0Gf2yShM763M8L2LAOVNph3QD8xHTqWubnqsEQKlP/tyKPcyvdaQ+z27OQ5qy8OhWw1e6TLZiltHjolX05mElr81EVbRFOwP/MtlYNHi4j2JqlCsosGwbn/2jCCS3BgkOBd/U1vXbVGZqCtlr/NIEb/CsQdB2XfpRwGkravzTW6XDxkqUZ+1OikWAsuQrmValmB2IJkgeDaHuTKUl+kZXAjCDOL7fyPPfNRMVX83KVuWG1BrueU+25rhDQzaMjHUrEU98qaHhz83Kxg38JM57d40AqjaiPVU7WH7EiWuUj',
+    key    => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDjUVpwaqEBKM+uGpWmKrcVugDjfm8lIzdekvW5Di6zd+AVdpwiC6TnkzqPYOOXdduFao9fp3rxenwx71VHQiYqVfjdqTvoIPZJj4WuV6DONqsN3hRh7OlMbvysOpkCp2LIa66F0FLL9EqXELUnuDlCzYPyAOPGVTKf+Ol555G6ThP4GIcq45xSRt1arUgfK5o7ybq/S2fFlLzLdn6q5RJwBxVsaVPK51Wipw0Kkz3P0bSYHxugUVnsKdOY0UJVhV/06cnMzcAwujollOFI25IHqX9nBIEWZ9s4lf8Z8mk72TvKUTpq+kdy6K1V928lu9VUjgAh9igNNtCrrLgquYlr',
   }
 }
